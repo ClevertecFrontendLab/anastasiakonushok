@@ -1,17 +1,22 @@
+import { ChevronRightIcon, HamburgerIcon } from '@chakra-ui/icons';
 import {
+    Box,
     Breadcrumb,
     BreadcrumbItem,
     BreadcrumbLink,
     Flex,
-    HStack,
+    Icon,
     Image,
     Text,
     VStack,
 } from '@chakra-ui/react';
 import { Link, useLocation } from 'react-router-dom';
 
-import AvatarImage from '../../../assets/avatar.png';
-import LogoImage from '../../../assets/logo.svg';
+import { StatBlock } from '~/components/UI/StatBlock';
+
+import AvatarImage from '../../../assets/images/avatar.png';
+import LogoMob from '../../../assets/images/logo-mob.svg';
+import LogoText from '../../../assets/images/logo-yee-daa.svg';
 import styles from './Header.module.scss';
 
 export const Header = () => {
@@ -35,55 +40,60 @@ export const Header = () => {
         <Flex
             as='header'
             className={styles.header}
-            p='16px'
-            pr='80px'
             align='center'
             justify='center'
             data-test-id='header'
-            maxW='1920px'
         >
-            <Flex w='100%' align='center' justify='space-between'>
+            <Flex as={Link} to='/' w='100%' align='center' justify='space-between'>
                 {/* Лого */}
-                <HStack className={styles.logo}>
-                    <Image src={LogoImage} alt='logo' h='32px' />
-                </HStack>
+                <Flex align='end' gap='7px' className={styles.logo}>
+                    <Image src={LogoMob} h='32px' />
+                    <Image
+                        src={LogoText}
+                        h='26px'
+                        alt='logo'
+                        display={{ base: 'none', sm: 'flex' }}
+                    />
+                </Flex>
 
                 {/* Хлебные крошки */}
                 <Flex flex='1'>
                     <Breadcrumb
-                        separator={
-                            <svg
-                                width='22'
-                                height='24'
-                                viewBox='0 0 22 24'
-                                fill='none'
-                                xmlns='http://www.w3.org/2000/svg'
-                            >
-                                <path
-                                    d='M9.2577 7.5L8.2002 8.5575L11.6352 12L8.2002 15.4425L9.2577 16.5L13.7577 12L9.2577 7.5Z'
-                                    fill='#1A202C'
-                                />
-                            </svg>
-                        }
+                        display={{ base: 'none', md: 'flex' }}
+                        spacing='8px'
+                        separator={<ChevronRightIcon boxSize={6} color='#1a202c' />}
                     >
                         {breadcrumbs.map((crumb, index) => {
                             const isLast = index === breadcrumbs.length - 1;
                             return (
                                 <BreadcrumbItem key={index} isCurrentPage={isLast}>
-                                    <BreadcrumbLink
-                                        as={Link}
-                                        to={crumb.path}
-                                        className={isLast ? styles.current : styles.link}
-                                    >
-                                        {crumb.name}
-                                    </BreadcrumbLink>
+                                    {isLast ? (
+                                        <Text className={styles.current}>{crumb.name}</Text>
+                                    ) : (
+                                        <BreadcrumbLink
+                                            as={Link}
+                                            to={crumb.path}
+                                            className={styles.link}
+                                        >
+                                            {crumb.name}
+                                        </BreadcrumbLink>
+                                    )}
                                 </BreadcrumbItem>
                             );
                         })}
                     </Breadcrumb>
                 </Flex>
+                <Flex display={{ base: 'flex', md: 'none' }} align='center' gap='16px'>
+                    {/* Статистика */}
+                    <StatBlock likes={125} saves={36} views={514} />
+
+                    {/* Бургер-кнопка */}
+                    <Box p='12px' as='button' onClick={() => console.log('Открыть меню')}>
+                        <Icon as={HamburgerIcon} boxSize={6}></Icon>
+                    </Box>
+                </Flex>
                 {/* Профиль */}
-                <Flex align='center' gap='12px'>
+                <Flex align='center' gap='12px' display={{ base: 'none', md: 'flex' }}>
                     <Image
                         src={AvatarImage}
                         alt='Екатерина'
