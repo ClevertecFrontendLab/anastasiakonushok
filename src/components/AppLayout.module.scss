@@ -1,0 +1,45 @@
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    overflow: hidden;
+  }
+  
+  .layout {
+    display: flex;
+    flex: 1;
+    height: calc(100vh - 80px - 60px); // 80 — header, 60 — footer
+    overflow: hidden;
+  }
+  
+  .sidebar {
+    width: 256px;
+    overflow-y: auto;
+    background: #f7f7f7;
+  }
+  
+  .main {
+    flex: 1;
+    overflow-y: auto;
+    padding: 24px;
+  }
+  
+  @media (max-width: 768px) {
+    .wrapper {
+      padding-top: 80px;
+      padding-bottom: 60px;
+    }
+  
+    .layout {
+      flex-direction: column;
+    }
+  
+    .sidebar {
+      display: none;
+    }
+  
+    .main {
+      padding: 16px;
+    }
+  }
+  

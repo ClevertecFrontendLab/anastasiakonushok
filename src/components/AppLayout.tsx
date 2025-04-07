@@ -1,12 +1,22 @@
-import { Box, Flex } from '@chakra-ui/react';
+// import { Footer } from '../components/Layout/Footer/Footer';
+import { Header } from '../components/Layout/Header/Header';
+import styles from './AppLayout.module.scss';
+import { SidebarMenu } from './Layout/SidebarMenu/SidebarMenu';
 
-import { Header } from './Layout/Header/Header';
+type Props = {
+    children: React.ReactNode;
+};
 
-export const AppLayout = ({ children }: { children: React.ReactNode }) => (
-    <Flex direction='column' height='100vh'>
+export const AppLayout = ({ children }: Props) => (
+    <div className={styles.wrapper}>
         <Header />
-        <Box as='main' flex='1' overflowY='auto'>
-            {children}
-        </Box>
-    </Flex>
+
+        <div className={styles.layout}>
+            <aside className={styles.sidebar}>
+                <SidebarMenu />
+            </aside>
+
+            <main className={styles.main}>{children}</main>
+        </div>
+    </div>
 );
