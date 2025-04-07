@@ -1,0 +1,45 @@
+.header {
+    background-color: #ffffd3; /* или #fdfdcf из Figma */
+    height: 80px;
+    padding: 16px 0;
+    max-width: 1920px;
+    width: 100%;
+    margin: 0 auto;
+  }
+  
+.logo {
+    padding-right: 128px;
+}
+  
+.username {
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 156%;
+    color: #000;
+}
+.userhandle {
+    font-family: var(--font-family);
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 143%;
+    color: rgba(0, 0, 0, 0.64);
+}
+
+.link {
+    font-family: var(--font-family);
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 150%;
+    text-align: center;
+    color: rgba(0, 0, 0, 0.64);
+    text-decoration: none;
+  
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+  
+  .current {
+    color: #000;
+  }
+  
