@@ -1,0 +1,13 @@
+.text {
+    font-family: var(--font-family);
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 133%;
+    color: #2db100;
+}
+
+.stats {
+    &__block {
+        padding: 4px 8px;
+    }
+}

@@ -1,4 +1,4 @@
-// import { Footer } from '../components/Layout/Footer/Footer';
+import { Footer } from '../components/Layout/Footer/Footer';
 import { Header } from '../components/Layout/Header/Header';
 import styles from './AppLayout.module.scss';
 import { SidebarMenu } from './Layout/SidebarMenu/SidebarMenu';
@@ -18,5 +18,6 @@ export const AppLayout = ({ children }: Props) => (
 
             <main className={styles.main}>{children}</main>
         </div>
+        <Footer />
     </div>
 );
