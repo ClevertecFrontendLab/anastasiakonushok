@@ -1,13 +1,16 @@
-import { Box, Text } from '@chakra-ui/react';
+import { Box } from '@chakra-ui/react';
+
+import { PageIntro } from '~/components/Layout/PageIntro/PageIntro';
+import { FilterPanel } from '~/components/UI/FilterPanel/FilterPanel';
 
 import { AppLayout } from '../components/AppLayout';
 
 export const HomePage = () => (
     <AppLayout>
-        <Box p={6}>
-            <Text fontSize='3xl' fontWeight='bold'>
-                Приятного аппетита!
-            </Text>
+        <Box>
+            <PageIntro title='Приятного аппетита!'>
+                <FilterPanel></FilterPanel>
+            </PageIntro>
         </Box>
     </AppLayout>
 );

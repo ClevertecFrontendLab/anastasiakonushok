@@ -19,7 +19,7 @@ import {
 } from '@chakra-ui/react';
 import { Link, useLocation } from 'react-router-dom';
 
-import { StatBlock } from '~/components/UI/StatBlock';
+import { StatBlock } from '~/components/UI/StatsBlock/StatBlock';
 
 import AvatarImage from '../../../assets/images/avatar.png';
 import LogoMob from '../../../assets/images/logo-mob.svg';

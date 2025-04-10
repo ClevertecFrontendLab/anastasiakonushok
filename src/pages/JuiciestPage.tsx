@@ -1,8 +1,16 @@
+import { Box } from '@chakra-ui/react';
+
+import { PageIntro } from '~/components/Layout/PageIntro/PageIntro';
+import { FilterPanel } from '~/components/UI/FilterPanel/FilterPanel';
+
 import { AppLayout } from '../components/AppLayout';
 
 export const JuiciestPage = () => (
     <AppLayout>
-        <h1>Самое сочное</h1>
-        <p>Здесь будет подборка самых сочных блюд.</p>
+        <Box>
+            <PageIntro title='Самое сочное'>
+                <FilterPanel></FilterPanel>
+            </PageIntro>
+        </Box>
     </AppLayout>
 );

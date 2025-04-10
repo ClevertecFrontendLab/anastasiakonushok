@@ -1,6 +1,6 @@
 import { Flex, Text } from '@chakra-ui/react';
 
-import styles from '../UI/StatBlock.module.scss';
+import styles from './StatBlock.module.scss';
 
 interface StatBlockProps {
     likes?: number;

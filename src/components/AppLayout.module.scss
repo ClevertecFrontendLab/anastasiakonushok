@@ -21,7 +21,20 @@
   .main {
     flex: 1;
     overflow-y: auto;
+  }
+
+    
+
+  .right {
+    width: 240px;
+    background: #fff;
     padding: 24px;
+    overflow: hidden;
+    position: sticky;
+    top: 80px; // столько же, сколько высота хедера
+    height: calc(100vh - 80px - 60px); // высота минус header и footer
+  
+    
   }
   
   @media (max-width: 768px) {
@@ -37,5 +50,9 @@
     .main {
       padding: 16px;
     }
+    .right {
+      display: none;
+    }
   }
+
   

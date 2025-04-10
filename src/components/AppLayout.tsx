@@ -15,8 +15,8 @@ export const AppLayout = ({ children }: Props) => (
             <aside className={styles.sidebar}>
                 <SidebarMenu />
             </aside>
-
             <main className={styles.main}>{children}</main>
+            <aside className={styles.right}></aside>
         </div>
         <Footer />
     </div>
